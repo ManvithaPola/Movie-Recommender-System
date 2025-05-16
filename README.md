@@ -1,162 +1,100 @@
 # 🎬 Movie Recommendation System
 
-A content-based movie recommendation system that suggests movies similar to the user's favorite based on features like genres, keywords, cast, director, and more. This project uses natural language processing and machine learning to find similarities between movies and provide personalized suggestions.
+---
+
+## 📝 Introduction
+
+This Movie Recommendation System uses **content-based filtering** to suggest movies similar to a user’s favorite. By analyzing key features such as genres, keywords, cast, director, and movie overview, it leverages natural language processing (NLP) and machine learning (ML) techniques to find meaningful similarities between movies and provide personalized recommendations.
 
 ---
 
-## 📌 Table of Contents
+## 📄 Abstract
 
-- [About the Project](#about-the-project)
-- [Tech Stack](#tech-stack)
-- [Dataset Used](#dataset-used)
-- [Approach](#approach)
-- [System Architecture](#system-architecture)
-- [Features](#features)
-- [Installation](#installation)
-- [How to Run](#how-to-run)
-- [Sample Output](#sample-output)
-- [Future Enhancements](#future-enhancements)
-- [Contributors](#contributors)
-- [License](#license)
+With the rapid growth of online movie platforms, finding movies that align with individual tastes has become essential. This project addresses that by implementing a content-based recommendation approach, focusing on movie attributes instead of user ratings or behavior. The system processes and merges multiple datasets, applies text preprocessing and vectorization, then calculates similarity scores to deliver relevant movie suggestions — enhancing user experience through smart discovery.
 
 ---
 
-## 📖 About the Project
+## ✨ Features
 
-The aim of this project is to help users discover movies they are likely to enjoy based on a given input movie. Unlike collaborative filtering which depends on user ratings, this system uses **content-based filtering** where recommendations are made by analyzing the features of the movies themselves.
+- Input any movie title and get **top 5 similar movie recommendations**
+- Uses **content-based filtering** instead of collaborative filtering
+- Combines multiple movie features: genres, cast, keywords, director, overview
+- Applies NLP techniques such as stemming and stopword removal
+- Easy to extend into a web app with Streamlit or Flask
+- Clean and commented Python code for ease of understanding and modification
+
+---
+
+## 🖼️ Screenshots
+
+### Movie Input Screen
+![Movie Input](screenshots/input.png)
+
+### Recommendation Results
+![Recommendation Output](screenshot1.png)
+![Recommendation Output](screenshot2.png)
+
+---
+
+## 🌐 Live Demo
+
+Try the live demo here:  
+[https://movie-recommender-system-sv6m.onrender.com/](https://movie-recommender-system-sv6m.onrender.com/)  
+
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Language**: Python 🐍
-- **Libraries**:
-  - `pandas`
-  - `numpy`
-  - `scikit-learn`
-  - `nltk`
-  - `ast`
-- **IDE**: VS Code / Jupyter Notebook
-- **Data Source**: TMDB (The Movie Database)
-
----
-
-## 🎞️ Dataset Used
-
-Two CSV files from [Kaggle's TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata):
-- `tmdb_5000_movies.csv`
-- `tmdb_5000_credits.csv`
-
-After preprocessing, columns like **genres, keywords, overview, cast, and crew** were merged and transformed into a single tag to extract meaningful similarity.
+- **Programming Language**: Python 🐍  
+- **Libraries & Tools**:
+  - pandas
+  - numpy
+  - scikit-learn
+  - nltk
+  - ast
+- **Development Environments**: VS Code, Jupyter Notebook  
+- **Data Source**: TMDB 5000 Movie Dataset from Kaggle
 
 ---
 
 ## 🧠 Approach
 
-1. **Data Merging & Cleaning**:
-   - Merged `movies` and `credits` datasets on `title`.
-   - Extracted relevant features: `genres`, `keywords`, `cast`, `crew`, and `overview`.
+1. **Data Collection & Merging**  
+   Combined movie metadata and credits datasets on movie titles.
 
-2. **Feature Engineering**:
-   - Extracted top 3 actors and director.
-   - Combined all textual features into one string ("tags").
+2. **Feature Extraction & Engineering**  
+   Extracted relevant columns: genres, keywords, cast (top 3 actors), director, and overview. Merged these into a single “tags” column.
 
-3. **Text Preprocessing**:
-   - Converted all text to lowercase.
-   - Removed spaces, punctuation.
-   - Used `nltk`'s `PorterStemmer` to reduce words to their root form.
+3. **Text Preprocessing**  
+   - Converted to lowercase  
+   - Removed spaces and punctuation  
+   - Applied stemming using NLTK’s PorterStemmer  
 
-4. **Vectorization**:
-   - Used `CountVectorizer` (Bag of Words model) to convert text to numerical vectors.
-   - Removed stopwords and limited to top 5000 words.
+4. **Vectorization**  
+   Used `CountVectorizer` to transform text data into numerical vectors, limiting to the top 5000 words and removing stopwords.
 
-5. **Similarity Calculation**:
-   - Computed **cosine similarity** between movie vectors.
+5. **Similarity Computation**  
+   Calculated cosine similarity between movie vectors to quantify similarity scores.
 
-6. **Recommendation Function**:
-   - When a user enters a movie, the function returns top 5 similar movies based on cosine similarity scores.
+6. **Recommendation Generation**  
+   Based on input movie title, output the top 5 most similar movies by similarity score.
 
 ---
 
-## 🧩 System Architecture
+## ⬇️ Cloning the Repository
 
-Raw Data (CSV) 
-     ↓
-Data Cleaning & Feature Extraction
-     ↓
-Text Preprocessing (NLP)
-     ↓
-Vectorization using CountVectorizer
-     ↓
-Cosine Similarity Matrix
-     ↓
-User Input → Movie Title
-     ↓
-Top 5 Similar Movies as Output
-
-✨ Features
-Input any movie title and get 5 similar movie recommendations.
-
-Uses content features, not ratings.
-
-Clean and understandable code with comments.
-
-Easy to extend into a web app using Streamlit or Flask.
-
-🚀 Installation
-Clone the repository:
-
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/yourusername/movie-recommendation-system.git
 cd movie-recommendation-system
-Install the required packages:
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-If you're using Jupyter Notebook:
+---
 
-bash
-Copy
-Edit
-jupyter notebook
-▶️ How to Run
-Run the notebook or script file:
+## 🔮 Future Enhancements
 
-bash
-Copy
-Edit
-python recommend.py
-OR open Movie_Recommendation_System.ipynb in Jupyter.
-
-Call the recommendation function:
-
-python
-Copy
-Edit
-recommend('Avatar')
-🖼️ Sample Output
-bash
-Copy
-Edit
-Recommendations for: Avatar
-
-1. John Carter
-2. Guardians of the Galaxy
-3. Star Trek
-4. Star Wars: The Force Awakens
-5. Interstellar
-🔮 Future Enhancements
-Build a frontend using Streamlit or Flask.
-
-Deploy the model using Heroku or Render.
-
-Add collaborative filtering (user behavior-based recommendations).
-
-Include movie posters and ratings in output.
-
-Build a search bar with autocomplete.
-
+- Build a web frontend using **Streamlit** or **Flask** for interactive UI  
+- Deploy the app on cloud platforms such as **Heroku**, **Render**, or **Streamlit Share**  
+- Incorporate **collaborative filtering** based on user behavior and ratings  
+- Add **movie posters, ratings, and trailers** to recommendations  
+- Implement a **search bar with autocomplete** for better user experience  
+- Support **multi-language** movie datasets and recommendations  
