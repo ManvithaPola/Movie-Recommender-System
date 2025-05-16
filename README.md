@@ -25,6 +25,20 @@ With the rapid growth of online movie platforms, finding movies that align with 
 
 ---
 
+## 📊 Dataset
+
+The dataset used in this project is the [TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata), which contains detailed information about 5,000 movies, including:
+
+- **tmdb_5000_movies.csv**: General information such as title, budget, revenue, genres, keywords, overview, release date, vote average, and vote count.
+- **tmdb_5000_credits.csv**: Cast and crew details, including actor and director names.
+
+You can download the dataset from Kaggle here:  
+👉 [Download TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
+
+*Note: A Kaggle account is required to download the dataset. If you don't have one, you can sign up for free at [kaggle.com](https://www.kaggle.com/).*
+
+---
+
 ## 🖼️ Screenshots
 ![Recommendation Output](screenshot1.png)
 ![Recommendation Output](screenshot2.png)
