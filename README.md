@@ -26,11 +26,6 @@ With the rapid growth of online movie platforms, finding movies that align with 
 ---
 
 ## 🖼️ Screenshots
-
-### Movie Input Screen
-![Movie Input](screenshots/input.png)
-
-### Recommendation Results
 ![Recommendation Output](screenshot1.png)
 ![Recommendation Output](screenshot2.png)
 
