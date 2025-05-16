@@ -82,7 +82,7 @@ Try the live demo here:
 ```bash
 git clone https://github.com/yourusername/movie-recommendation-system.git
 cd movie-recommendation-system
-
+```
 ---
 
 ## 🔮 Future Enhancements
